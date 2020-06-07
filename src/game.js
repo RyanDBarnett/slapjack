@@ -25,13 +25,28 @@ class Game {
 	addToCenterPile() {
 		this.centerPile.push(this.currentPlayer.playCard());
 	}
+
+	updateWinCount(player) {
+		player.wins++;
+	}
+
+	resetDeck() {
+		this.shuffle(this.cards);
+		this.deal();
+	}
+
+	slap() {
+		const firstCard = this.centerPile[this.centerPile.length - 1];
+		const secondCard = this.centerPile[this.centerPile.length - 2];
+		const thirdCard = this.centerPile[this.centerPile.length - 3];
+		if (firstCard === 11 || firstCard === secondCard || firstCard === thirdCard) {
+			// winnner
+		} else {
+			// loser
+		}
+	}
 }
 
 // A Game should include:
 
-// A way to deal the deck out to the players
-// A way to keep track of which player’s turn it currently is
-// A way for a player to deal a card into the middle pile
 // A way for players to attempt slapping the pile with varying outcomes (“legal” slaps are Jacks, doubles, and sandwiches - see the playthrough video for further explanation)
-// A way to update a player’s wins count
-// A way to reset the deck and players to play a new game when one is won
