@@ -15,8 +15,9 @@ class Game {
 	}
 
 	deal() {
-
-
+		this.cards.forEach((card, i) => {
+			i % 2 ? this.player1.hand.push(card) : this.player2.hand.push(card);
+		})
 	}
 }
 
