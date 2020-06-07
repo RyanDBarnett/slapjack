@@ -4,4 +4,8 @@ class Player {
         this.hand = [];
         this.wins = 0;
     }
+
+    playCard() {
+        return this.hand.pop();
+    }
 }
