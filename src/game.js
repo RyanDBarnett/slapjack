@@ -2,7 +2,9 @@ class Game {
 	constructor() {
 		this.player1 = new Player(1);
 		this.player2 = new Player(2);
+		this.currentPlayer = this.player1;
 		this.cards = [1,2,3,4,5,6,7,8,9,10];
+		this.centerPile = [];
 	}
 
 	shuffle(cards) {
@@ -19,13 +21,14 @@ class Game {
 			i % 2 ? this.player1.hand.push(card) : this.player2.hand.push(card);
 		})
 	}
+
+	addToCenterPile() {
+		this.centerPile.push(this.currentPlayer.playCard());
+	}
 }
 
 // A Game should include:
-// Two Player instances
-// An array of all the possible cards
-// A way to shuffle the deck
-// A way to keep track of the central pile of cards the players will add to
+
 // A way to deal the deck out to the players
 // A way to keep track of which player’s turn it currently is
 // A way for a player to deal a card into the middle pile
